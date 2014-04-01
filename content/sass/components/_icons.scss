@@ -1,0 +1,13 @@
+$icon-images: search news people;
+
+.icon {
+	@include inline(middle);
+}
+
+@for $i from 1 through length($icon-images) {
+    .icon[data-icon="#{nth($icon-images, $i)}"] {
+    	width: image-width(sprite-file($icons, #{nth($icon-images, $i)}));
+    	height: image-height(sprite-file($icons, #{nth($icon-images, $i)}));
+    	@include use-sprite(#{nth($icon-images, $i)}, $retina: false, $hover: false);
+    }
+}
